@@ -33,8 +33,6 @@ app/locale/en_US/
 app/Mage.php
 /cron.php
 cron.sh
-dev/.htaccess
-dev/tests/functional/
 downloader/
 errors/
 favicon.ico
@@ -108,4 +106,9 @@ skin/install/
 var/
 
 .idea/magicento/
-.idea
+.idea/*
+dev/
+js/
+lib/
+shell/
+skin/
