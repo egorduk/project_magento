@@ -2,62 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b01c870e-4459-4ee1-b749-94fa619b2397" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/community/Tadic/AVP/Block/Adminhtml/Catalog/Product/Edit.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/community/Tadic/AVP/etc/config.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Block/Adminhtml/Article.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/controllers/Adminhtml/IndexController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/controllers/IndexController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/etc/adminhtml.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/etc/system.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/dashboard.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/dashboard/address.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/dashboard/hello.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/dashboard/info.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/dashboard/newsletter.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/link/back.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/account/navigation.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/address.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/address/book.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/address/edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/balance.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/address.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/changepassword.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/confirmation.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/edit.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/forgotpassword.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/login.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/mini.login.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/newsletter.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/register.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/form/resetforgottenpassword.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/logout.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/orders.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/widget/dob.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/widget/gender.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/widget/name.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/widget/taxvat.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/base/default/template/customer/wishlist.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/default/default/Mage/adminblock.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/default/default/layout/local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/adminhtml/default/default/template/mage/insurance/simple_page.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/frontend/base/default/layout/local.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/design/frontend/base/default/template/mage/insurance/simple_page.phtml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/etc/modules/Tadic_AVP.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Varien/Simplexml/Config.php" afterPath="$PROJECT_DIR$/lib/Varien/Simplexml/Config.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Block/Adminhtml/Article.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Block/Adminhtml/Adminblock.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Block/Adminhtml/Article/Grid.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Block/Adminhtml/Article/Grid.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Helper/Article.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Helper/Article.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Helper/Data.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Helper/Data.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Model/Article.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Model/Article.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Model/Mysql/Article.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Model/Mysql/Article.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/Model/Mysql/Collection.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/Model/Mysql/Collection.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/controllers/Adminhtml/ArticleController.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/controllers/Adminhtml/ArticleController.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/etc/config.xml" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/etc/config.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/code/local/Insurance/sql/blog_setup/mysql4-install-0.1.0.php" afterPath="$PROJECT_DIR$/app/code/local/Mage/Insurance/sql/blog_setup/mysql4-install-0.1.0.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/etc/modules/Insurance.xml" afterPath="$PROJECT_DIR$/app/etc/modules/Mage_Insurance.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -618,7 +563,7 @@
       <workItem from="1487081436354" duration="136000" />
       <workItem from="1487081595455" duration="3335000" />
       <workItem from="1487197259734" duration="1099000" />
-      <workItem from="1487198414341" duration="13681000" />
+      <workItem from="1487198414341" duration="13721000" />
     </task>
     <task id="LOCAL-00001" summary="16-02-2017">
       <created>1487198066865</created>
@@ -627,11 +572,18 @@
       <option name="project" value="LOCAL" />
       <updated>1487198066865</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="16-02-2017">
+      <created>1487213517967</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1487213517967</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24269000" />
+    <option name="totallyTimeSpent" value="24309000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
