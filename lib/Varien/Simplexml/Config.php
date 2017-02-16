@@ -508,6 +508,7 @@ class Varien_Simplexml_Config
     {
         if (is_string($string)) {
             $xml = simplexml_load_string($string, $this->_elementClass);
+            //var_dump($xml);die;
 
             if ($xml instanceof Varien_Simplexml_Element) {
                 $this->_xml = $xml;

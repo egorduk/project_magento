@@ -1,0 +1,13 @@
+<layout version="0.1.0">
+    <default>
+        <reference name="content">
+            <!--<action method="setTemplate">
+                <template>mage/insurance/simple_page.phtml</template>
+            </action>-->
+            <!--<block type="page/html" name="root" output="toHtml" template="mage/insurance/simple_page.phtml">-->
+              <!--  <block type="page/template_links" name="top.links"/>-->
+                <!--<block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml"/>-->
+            <!--</block>-->
+        </reference>
+    </default>
+</layout>

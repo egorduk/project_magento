@@ -1,0 +1,13 @@
+<layout version="0.1.0">
+    <!--<catalog_product_view>-->
+    <default>
+        <reference name="content">
+            <action method="setTemplate">
+                <template>mage/insurance/simple_page.phtml</template>
+            </action>
+            <!--<block type="page/template_links" name="top.links"/>-->
+            <block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml"/>
+        </reference>
+    </default>
+    <!--</catalog_product_view>-->
+</layout>

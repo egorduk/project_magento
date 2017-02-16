@@ -1,16 +1,19 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Insurance>
+        <Mage_Insurance>
             <version>0.1.0</version>
-        </Insurance>
+            <depends>
+                <!-- no dependencies -->
+            </depends>
+        </Mage_Insurance>
     </modules>
     <frontend>
         <routers>
             <insurance>
                 <use>standard</use>
                 <args>
-                    <module>Insurance</module>
+                    <module>Mage_Insurance</module>
                     <frontName>insurance</frontName>
                 </args>
             </insurance>
@@ -18,16 +21,16 @@
     </frontend>
     <admin>
         <routers>
-            <insurance>
+            <Mage_Insurance_admin_router>
                 <use>admin</use>
                 <args>
-                    <module>Insurance</module>
+                    <module>Mage_Insurance</module>
                     <frontName>insurance</frontName>
                 </args>
-            </insurance>
+            </Mage_Insurance_admin_router>
         </routers>
     </admin>
-    <adminhtml>
+<!--    <adminhtml>
         <menu>
             <insurance module="insurance">
                 <title>Insurance</title>
@@ -63,9 +66,9 @@
                 </insurance>
             </updates>
         </layout>
-    </adminhtml>
+    </adminhtml>-->
     <global>
-        <models>
+        <!--<models>
             <insurance>
                 <class>Insurance_Model</class>
                 <resourceModel>insurance_mysql</resourceModel>
@@ -78,16 +81,17 @@
                     </article>
                 </entities>
             </insurance_mysql>
-        </models>
+        </models>-->
         <resources>
-            <insurance_setup>
+            <mage_insurance_setup>
                 <setup>
-                    <module>Insurance</module>
+                    <module>Mage_Insurance</module>
+                    <!--<class>Mage_Insurance_Model_Resource_Setup</class>-->
                 </setup>
                 <connection>
                     <use>core_setup</use>
                 </connection>
-            </insurance_setup>
+            </mage_insurance_setup>
             <insurance_write>
                 <connection>
                     <use>core_write</use>
@@ -101,12 +105,12 @@
         </resources>
         <blocks>
             <insurance>
-                <class>Insurance_Block</class>
+                <class>Mage_Insurance_Block</class>
             </insurance>
         </blocks>
         <helpers>
             <insurance>
-                <class>Insurance_Helper</class>
+                <class>Mage_Insurance_Helper</class>
             </insurance>
         </helpers>
     </global>
