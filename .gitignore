@@ -91,7 +91,6 @@ skin/frontend/enterprise
 skin/install/
 var/
 
-.idea/magicento/
 .idea/*
 dev/
 js/
