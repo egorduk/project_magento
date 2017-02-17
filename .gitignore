@@ -6,15 +6,6 @@
 app/code/community/Phoenix/Moneybookers/
 app/code/community/Cm/RedisSession/
 app/code/core/
-app/design/adminhtml/default/default/
-!app/design/adminhtml/default/default/layout/blog.xml
-app/design/frontend/rwd/
-app/design/frontend/default/blank/
-app/design/frontend/default/default/
-!app/design/frontend/default/default/template
-app/design/frontend/default/iphone/
-app/design/frontend/default/modern/
-app/design/frontend/enterprise/default
 app/design/install/
 app/etc/applied.patches.list
 app/etc/config.xml
@@ -28,8 +19,6 @@ app/locale/en_US/
 app/Mage.php
 /cron.php
 cron.sh
-dev/.htaccess
-dev/tests/functional/
 downloader/
 errors/
 favicon.ico
@@ -101,5 +90,4 @@ skin/frontend/enterprise
 skin/install/
 var/
 
-.idea/magicento/
 .idea
