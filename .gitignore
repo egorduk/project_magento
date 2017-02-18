@@ -92,8 +92,3 @@ skin/install/
 var/
 
 .idea/*
-dev/
-js/
-lib/
-shell/
-skin/
