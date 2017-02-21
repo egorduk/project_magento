@@ -94,4 +94,15 @@ class Mage_Insurance_Model_Observer
         //$percentorder = $request->getParam('percentorder');
         //$commission = $request->getParam('commission');
     }
+
+    public function saveShippingMethod($observer)
+    {
+        //$event = $obs->getEvent();
+        $quote = $observer->getEvent()->getQuote();
+        //$quote = $evt->getQuote();
+        //var_dump($quote->getBaseGrandTotal());
+        Mage::log('saveShippingMethod');
+        //die;
+        //return $this;
+    }
 }

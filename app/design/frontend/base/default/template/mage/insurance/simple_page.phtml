@@ -18,6 +18,7 @@
             <input type="checkbox" id="delivery-insurance" name="deliveryInsurance" />
             <input type="hidden" id="quote-id" name="quoteId" value="<?php echo $this->htmlEscape($this->getQuote()->getId()) ?>" />
         </div>
-        <span><?php echo $this->htmlEscape($this->getQuote()->getBaseGrandTotal()) ?></span>
+<!--        <span>--><?php //echo $this->htmlEscape($this->getQuote()->getBaseGrandTotal()) ?><!--</span>-->
+        <p id="place-delivery-insurance-cost"></p>
     </li>
 </ul>

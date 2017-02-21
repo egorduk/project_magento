@@ -1,26 +1,27 @@
 (function($) {
     $(document).ready(function() {
-       $('#opc-shipping_method').on('change', 'input[type=radio]', function () {
-           $('#delivery-insurance').prop('checked', false);
+        var deliveryInsuranceEl = $('#delivery-insurance'),
+            placeDeliveryInsuranceCost = $('#place-delivery-insurance-cost');
+
+        $('#opc-shipping_method').on('change', 'input[type=radio]', function () {
+            deliveryInsuranceEl.prop('checked', false);
+            placeDeliveryInsuranceCost.empty();
         });
 
-        $('#delivery-insurance').on('change', function () {
-            //console.log($('#co-shipping-method-form').find('input[type=radio]'));
-            //console.log($('#co-shipping-method-form').find('input[type=radio]:checked').val());
+        deliveryInsuranceEl.on('change', function () {
+            if (deliveryInsuranceEl.prop('checked')) {
+                var shippingMethodId = $('#co-shipping-method-form').find('input[type=radio]:checked').val();
 
-           // var data = { 'quoteId': $('#quote-id').val() };
-            var shippingMethodId = $('#co-shipping-method-form').find('input[type=radio]:checked').val();
-            var quoteId = $('#quote-id').val();
-
-            $.post(
-                url,
-                {
-                    quoteId: quoteId,
-                    shippingMethodId: shippingMethodId
-                },
-                function(data) {
-                }
-            );
+                $.post(
+                    url,
+                    {
+                        shippingMethodId: shippingMethodId
+                    },
+                    function(data) {
+                        placeDeliveryInsuranceCost.empty().append(data);
+                    }
+                )
+            }
         });
     });
 })(jQuery);
