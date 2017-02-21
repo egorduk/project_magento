@@ -82,7 +82,6 @@ skin/frontend/base/
 skin/frontend/rwd/
 skin/frontend/default/blank/
 skin/frontend/default/blue/
-skin/frontend/default/default/
 skin/frontend/default/french/
 skin/frontend/default/german/
 skin/frontend/default/iphone/
@@ -91,4 +90,4 @@ skin/frontend/enterprise
 skin/install/
 var/
 
-.idea/*
+.idea

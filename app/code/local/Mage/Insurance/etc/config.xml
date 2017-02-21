@@ -30,43 +30,43 @@
             </Mage_Insurance_admin_router>
         </routers>
     </admin>
-<!--    <adminhtml>
-        <menu>
-            <insurance module="insurance">
-                <title>Insurance</title>
-                <sort_order>77</sort_order>
-                <children>
-                    <article module="insurance">
-                        <title>Manage</title>
-                        <sort_order>0</sort_order>
-                        <action>insurance/test</action>
-                    </article>
-                </children>
-            </insurance>
-        </menu>
-        <acl>
-            <resources>
-                <all>
-                    <title>Allow Everything</title>
-                </all>
-                <admin>
+    <!--    <adminhtml>
+            <menu>
+                <insurance module="insurance">
+                    <title>Insurance</title>
+                    <sort_order>77</sort_order>
                     <children>
-                        <insurance>
-                            <title>Insurance Module</title>
-                            <sort_order>200</sort_order>
-                        </insurance>
+                        <article module="insurance">
+                            <title>Manage</title>
+                            <sort_order>0</sort_order>
+                            <action>insurance/test</action>
+                        </article>
                     </children>
-                </admin>
-            </resources>
-        </acl>
-        <layout>
-            <updates>
-                <insurance>
-                    <file>insurance.xml</file>
                 </insurance>
-            </updates>
-        </layout>
-    </adminhtml>-->
+            </menu>
+            <acl>
+                <resources>
+                    <all>
+                        <title>Allow Everything</title>
+                    </all>
+                    <admin>
+                        <children>
+                            <insurance>
+                                <title>Insurance Module</title>
+                                <sort_order>200</sort_order>
+                            </insurance>
+                        </children>
+                    </admin>
+                </resources>
+            </acl>
+            <layout>
+                <updates>
+                    <insurance>
+                        <file>insurance.xml</file>
+                    </insurance>
+                </updates>
+            </layout>
+        </adminhtml>-->
     <global>
         <!--<models>
             <insurance>
@@ -113,5 +113,43 @@
                 <class>Mage_Insurance_Helper</class>
             </insurance>
         </helpers>
+        <events>
+            <sales_quote_save_before> <!-- Event Called Before Quote Object is saved -->
+                <observers>
+                    <save_before>
+                        <type>singleton</type>
+                        <class>Mage_Insurance_Model_Observer</class> <!-- Over Model Class -->
+                        <method>saveQuoteBefore</method> <!-- name of function -->
+                    </save_before>
+                </observers>
+            </sales_quote_save_before>
+<!--            <sales_quote_item_save_before>
+                <observers>
+                    <save_before>
+                        <type>singleton</type>
+                        <class>Mage_Insurance_Model_Observer</class>
+                        <method>saveQuoteItemBefore</method>
+                    </save_before>
+                </observers>
+            </sales_quote_item_save_before>-->
+<!--            <sales_order_before_save>
+                <observers>
+                    <save_before_test>
+                        <type>singleton</type>
+                        <class>Mage_Insurance_Model_Observer</class>
+                        <method>saveOrderBefore</method>
+                    </save_before_test>
+                </observers>
+            </sales_order_before_save>-->
+<!--            <sales_model_service_quote_submit_after> &lt;!&ndash; Event called after order placed &ndash;&gt;
+                <observers>
+                    <sales_model_service_quote_submit_after>
+                        <type>singleton</type>
+                        <class>Mage_Insurance_Model_Observer</class> &lt;!&ndash; Over Model Class &ndash;&gt;
+                        <method>saveOrderAfter</method> &lt;!&ndash; name of function &ndash;&gt;
+                    </sales_model_service_quote_submit_after>
+                </observers>
+            </sales_model_service_quote_submit_after>-->
+        </events>
     </global>
 </config>
