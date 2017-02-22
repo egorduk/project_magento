@@ -98,11 +98,13 @@ class Mage_Insurance_Model_Observer
     public function saveShippingMethod($observer)
     {
         //$event = $obs->getEvent();
-        $quote = $observer->getEvent()->getQuote();
+        //$quote = $observer->getEvent()->getQuote();
         //$quote = $evt->getQuote();
         //var_dump($quote->getBaseGrandTotal());
+
+        Mage::helper('Insurance')->setIsIncludeInsuranceDelivery();
         Mage::log('saveShippingMethod');
-        //die;
-        //return $this;
+        //Mage::log(Mage::getSingleton('core/session')->getData('isIncludeDeliveryInsurance'));
+        return $this;
     }
 }
