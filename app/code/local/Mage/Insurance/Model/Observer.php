@@ -102,7 +102,14 @@ class Mage_Insurance_Model_Observer
         //$quote = $evt->getQuote();
         //var_dump($quote->getBaseGrandTotal());
 
-        Mage::helper('Insurance')->setIsIncludeInsuranceDelivery();
+        $postData = Mage::app()->getFrontController()->getRequest()->getPost();
+
+        if ($postData['deliveryInsurance']) {
+            Mage::helper('Insurance')->setIsIncludeInsuranceDelivery();
+        } else {
+            Mage::helper('Insurance')->unsetIsIncludeInsuranceDelivery();
+        }
+
         Mage::log('saveShippingMethod');
         //Mage::log(Mage::getSingleton('core/session')->getData('isIncludeDeliveryInsurance'));
         return $this;

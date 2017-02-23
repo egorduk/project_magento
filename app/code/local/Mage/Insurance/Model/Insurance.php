@@ -28,7 +28,7 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
         //http://blog.magestore.com/magento-checkout-totals/
         parent::collect($address);
 
-        Mage::log($address->getAddressType());
+        //Mage::log($address->getAddressType());
 
         $this->_setAmount(0);
         $this->_setBaseAmount(0);
@@ -53,13 +53,14 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
 
 
         //if (Excellence_Fee_Model_Fee::canApply($address)) { //your business logic
-            $existAmount = $quote->getDeliveryInsurance();
+            $existDeliveryInsurance = $quote->getDeliveryInsurance();
             //$fee = Excellence_Fee_Model_Fee::getFee();
             //$fee = 100;
 
             $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($address->getBaseGrandTotal());
 
-            $balance = $deliveryInsurance - $existAmount;
+            $balance = $deliveryInsurance - $existDeliveryInsurance;
+            Mage::log($balance);
             $address->setDeliveryInsurance($balance);
             $address->setBaseDeliveryInsurance($balance);
 
@@ -81,19 +82,13 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
 
         // if (($address->getAddressType() == 'billing')) {
         if ($isIncludeInsuranceDelivery && $address->getAddressType() == 'billing') {
-            $amt = $address->getDeliveryInsurance();
             $address->addTotal([
                 'code' => $this->getCode(),
                 'title' => $this->getLabel(),
-                'value' => $amt,
+                'value' => $address->getDeliveryInsurance(),
             ]);
         }
 
         return $this;
-    }
-
-    public function test()
-    {
-        return 'yo';
     }
 }
