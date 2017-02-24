@@ -165,6 +165,8 @@
                 <totals>
                     <delivery_insurance>
                         <class>Mage_Insurance_Model_Insurance</class>
+                        <after>subtotal</after>
+                        <before>tax</before>
                     </delivery_insurance>
                 </totals>
             </quote>

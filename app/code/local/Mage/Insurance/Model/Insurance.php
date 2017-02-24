@@ -2,11 +2,11 @@
 
 class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Total_Abstract
 {
-    protected $_code = 'delivery insurance';
+    protected $code = 'delivery_insurance';
 
     public function __construct()
     {
-        $this->setCode($this->_code);
+        $this->setCode($this->code);
     }
 
     /**
@@ -28,7 +28,7 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
         //http://blog.magestore.com/magento-checkout-totals/
         parent::collect($address);
 
-        //Mage::log($address->getAddressType());
+        //var_dump($address);
 
         $this->_setAmount(0);
         $this->_setBaseAmount(0);
@@ -40,39 +40,39 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
         }
 
         $quote = $address->getQuote();
+        //var_dump($address);
 
         //Mage::helper('Insurance')->unsetIsIncludeInsuranceDelivery();
 
         $isIncludeInsuranceDelivery = $this->getIsIncludeInsuranceDelivery();
-        Mage::log($isIncludeInsuranceDelivery);
 
-        //if ((!$quote->isVirtual() && $address->getAddressType() == 'billing') || $address->getAddressType() == 'shipping' || !$isIncludeInsuranceDelivery) {
-        if (!$isIncludeInsuranceDelivery) {
+        if (($quote->isVirtual() && $address->getAddressType() == 'billing') /*|| $address->getAddressType() == 'shipping' */|| !$isIncludeInsuranceDelivery) {
+        //if (!$isIncludeInsuranceDelivery) {
             return $this;
         }
 
+        Mage::log($address->getBaseGrandTotal());
+        Mage::log($address->getGrandTotal());
+        Mage::log($quote->getBaseGrandTotal());
+        Mage::log($quote->getGrandTotal());
 
-        //if (Excellence_Fee_Model_Fee::canApply($address)) { //your business logic
-            $existDeliveryInsurance = $quote->getDeliveryInsurance();
-            //$fee = Excellence_Fee_Model_Fee::getFee();
-            //$fee = 100;
+        //Mage::log('collect - ' . $isIncludeInsuranceDelivery);
 
-            $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($address->getBaseGrandTotal());
+        //$existDeliveryInsurance = $quote->getDeliveryInsurance();
 
-            $balance = $deliveryInsurance - $existDeliveryInsurance;
-            Mage::log($balance);
-            $address->setDeliveryInsurance($balance);
-            $address->setBaseDeliveryInsurance($balance);
+        $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($quote->getBaseGrandTotal());
+        Mage::log('collect $deliveryInsurance - ' . $deliveryInsurance);
 
-            $quote->setDeliveryInsurance($balance);
+        $address->setDeliveryInsurance($deliveryInsurance);
+        $address->setBaseDeliveryInsurance($deliveryInsurance);
 
-            $address->setGrandTotal($address->getGrandTotal() + $address->getDeliveryInsurance());
-            $address->setBaseGrandTotal($address->getBaseGrandTotal() + $address->getBaseDeliveryInsurance());
+        $quote->setDeliveryInsurance($deliveryInsurance);
+        $quote->setBaseDeliveryInsurance($deliveryInsurance);
 
-            //Mage::log('Mage_Insurance_Model_Insurance');
+        //$address->setGrandTotal($address->getGrandTotal() + $deliveryInsurance);
+        //$address->setBaseGrandTotal($address->getBaseGrandTotal() + $deliveryInsurance);
 
         return $this;
-       // }
     }
 
     public function fetch(Mage_Sales_Model_Quote_Address $address)
@@ -82,10 +82,14 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
 
         // if (($address->getAddressType() == 'billing')) {
         if ($isIncludeInsuranceDelivery && $address->getAddressType() == 'billing') {
+            $quote = $address->getQuote();
+            Mage::log(var_dump($quote));
+            Mage::log(var_dump($address));
+
             $address->addTotal([
                 'code' => $this->getCode(),
                 'title' => $this->getLabel(),
-                'value' => $address->getDeliveryInsurance(),
+                'value' => $quote->getDeliveryInsurance(),
             ]);
         }
 

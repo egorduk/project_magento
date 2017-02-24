@@ -6,14 +6,17 @@ class Mage_Insurance_AjaxController extends Mage_Core_Controller_Front_Action
     {
         $data = $this->getRequest()->getPost();
 
-        $salesQuote = Mage::getModel('sales/quote_address_rate')->load($data['shippingMethodId'], 'code');
+        $quoteAddress = Mage::getModel('sales/quote_address_rate')->load($data['shippingMethodId'], 'code');
+        $quote = Mage::getModel('sales/quote')->load($data['quoteId']);
 
-        if ($salesQuote) {
-            $salesQuoteData = $salesQuote->getData();
-
+        if ($quote && $quoteAddress) {
             $helper = Mage::helper('Insurance');
 
-            echo $helper->getCurrentCurrencySymbol() . $helper->getInsuranceDeliveryCost($salesQuoteData['price']);
+            /* @var Mage_Sales_Model_Quote $quote */
+
+            $baseTotal = $quote->getBaseSubtotalWithDiscount() + $quoteAddress->getPrice();
+
+            echo $helper->getCurrentCurrencySymbol() . $helper->getInsuranceDeliveryCost($baseTotal);
         }
     }
 }

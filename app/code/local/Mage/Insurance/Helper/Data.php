@@ -21,12 +21,12 @@ class Mage_Insurance_Helper_Data extends Mage_Core_Helper_Abstract
         $deliveryAbsolutePrice = Mage::getStoreConfig('checkout/backend/delivery_insurance_absolute_value');
         $deliveryAbsolute = Mage::getStoreConfig('checkout/backend/delivery_insurance_absolute');
 
-        if (!$deliveryAbsolute) {
+        if ($deliveryAbsolute) {
+            return $deliveryAbsolutePrice;
+        } else {
             $deliveryTotal = $baseTotal * ($deliveryInsurancePercent / 100);
 
-            return $baseTotal + $deliveryTotal;
-        } else {
-            return $baseTotal + $deliveryAbsolutePrice;
+            return $deliveryTotal;
         }
     }
 

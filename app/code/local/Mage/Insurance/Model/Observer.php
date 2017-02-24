@@ -30,9 +30,9 @@ class Mage_Insurance_Model_Observer
         Mage::log($quote->getBaseGrandTotal());
         Mage::log($request->getParam('deliveryInsurance'));
 
-        $deliveryInsurance = $post['deliveryInsurance'];
+        //$deliveryInsurance = $post['deliveryInsurance'];
 
-        if ($deliveryInsurance) {
+        //if ($deliveryInsurance) {
             $deliveryInsurancePercent = Mage::getStoreConfig('checkout/backend/delivery_insurance_percent');
             $deliveryAbsolutePrice = Mage::getStoreConfig('checkout/backend/delivery_insurance_absolute_value');
             $deliveryAbsolute = Mage::getStoreConfig('checkout/backend/delivery_insurance_absolute');
@@ -44,7 +44,7 @@ class Mage_Insurance_Model_Observer
 
                 Mage::log($baseGrandTotal);
             }
-        }
+        //}
        // Mage::log($post['deliveryInsurance']);
         //Mage::log(print_r($post));
     }
@@ -66,7 +66,7 @@ class Mage_Insurance_Model_Observer
         /* @var Mage_Sales_Model_Order $order */
         $order = $evt->getOrder();
         $quote = $evt->getQuote();
-        $order->setBaseGrandTotal(777);
+        //$order->setBaseGrandTotal(777);
         //Mage::log($order->getBaseGrandTotal());die;
 
       /*  if ($quote->getSsn()){
@@ -104,13 +104,12 @@ class Mage_Insurance_Model_Observer
 
         $postData = Mage::app()->getFrontController()->getRequest()->getPost();
 
-        if ($postData['deliveryInsurance']) {
-            Mage::helper('Insurance')->setIsIncludeInsuranceDelivery();
-        } else {
+        isset($postData['deliveryInsurance']) ?
+            Mage::helper('Insurance')->setIsIncludeInsuranceDelivery() :
             Mage::helper('Insurance')->unsetIsIncludeInsuranceDelivery();
-        }
 
-        Mage::log('saveShippingMethod');
+        //Mage::log('saveShippingMethod');
+        //Mage::log('deliveryInsurance - ' . Mage::helper('Insurance')->getIsIncludeInsuranceDelivery());
         //Mage::log(Mage::getSingleton('core/session')->getData('isIncludeDeliveryInsurance'));
         return $this;
     }

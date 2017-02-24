@@ -10,12 +10,14 @@
 
         deliveryInsuranceEl.on('change', function () {
             if (deliveryInsuranceEl.prop('checked')) {
-                var shippingMethodId = $('#co-shipping-method-form').find('input[type=radio]:checked').val();
+                var shippingMethodId = $('#co-shipping-method-form').find('input[type=radio]:checked').val(),
+                    quoteId = $('#quote-id').val();
 
                 $.post(
                     url,
                     {
-                        shippingMethodId: shippingMethodId
+                        shippingMethodId: shippingMethodId,
+                        quoteId: quoteId
                     },
                     function(data) {
                         placeDeliveryInsuranceCost.empty().append(data);
