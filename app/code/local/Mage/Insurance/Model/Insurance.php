@@ -26,51 +26,61 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
     {
         //https://astrio.net/blog/magento-development-add-total-row-checkout/
         //http://blog.magestore.com/magento-checkout-totals/
-        parent::collect($address);
+        //parent::collect($address);
 
         //var_dump($address);
 
-        $this->_setAmount(0);
-        $this->_setBaseAmount(0);
+        //$this->_setAmount(0);
+        //$this->_setBaseAmount(0);
 
-        $items = $this->_getAddressItems($address);
+        //$items = $this->_getAddressItems($address);
 
-        if (!count($items)) {
-            return $this; //this makes only address type shipping to come through
-        }
+        //if (!count($items)) {
+        //    return $this; //this makes only address type shipping to come through
+        //}
 
         $quote = $address->getQuote();
-        //var_dump($address);
 
         //Mage::helper('Insurance')->unsetIsIncludeInsuranceDelivery();
 
         $isIncludeInsuranceDelivery = $this->getIsIncludeInsuranceDelivery();
 
-        if (($quote->isVirtual() && $address->getAddressType() == 'billing') /*|| $address->getAddressType() == 'shipping' */|| !$isIncludeInsuranceDelivery) {
+        //if (($quote->isVirtual() && $address->getAddressType() == 'billing') /*|| $address->getAddressType() == 'shipping' */|| !$isIncludeInsuranceDelivery) {
         //if (!$isIncludeInsuranceDelivery) {
-            return $this;
-        }
+            //return $this;
+       // }
 
-        Mage::log($address->getBaseGrandTotal());
-        Mage::log($address->getGrandTotal());
-        Mage::log($quote->getBaseGrandTotal());
-        Mage::log($quote->getGrandTotal());
+        if ($isIncludeInsuranceDelivery) {
+            //foreach ($this->_getAddressItems($address) as $item) {
+                //Mage::log('item - ' . $item['baseGrandTotal']);
+                //Mage::log('item - ' . $item->geGrandTotal());
+            //}
+           // var_dump($quote);
+            $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($quote->getBaseGrandTotal());
+            Mage::log('collect $deliveryInsurance - ' . $deliveryInsurance);
+
+            $address->setDeliveryInsurance($deliveryInsurance);
+            $address->setBaseDeliveryInsurance($deliveryInsurance);
+
+            $quote->setDeliveryInsurance($deliveryInsurance);
+            $quote->setBaseDeliveryInsurance($deliveryInsurance);
+
+            //Mage::log($address->getId());
+            //$adr = Mage::getModel('sales/quote_address')->load($address->getId());
+            Mage::log($address->getGrandTotal());
+            Mage::log($address->getBaseGrandTotal());
+            //Mage::log('session checkout ' . Mage::getModel('checkout/session')->getQuote()->getGrandTotal());
+            Mage::log($quote->getBaseGrandTotal());
+            Mage::log($quote->getGrandTotal());
+            //Mage::log($address->getAddressType());
+
+            //$address->setGrandTotal($address->getGrandTotal() + $deliveryInsurance);
+            //$address->setBaseGrandTotal($address->getBaseGrandTotal() + $deliveryInsurance);
+        }
 
         //Mage::log('collect - ' . $isIncludeInsuranceDelivery);
 
         //$existDeliveryInsurance = $quote->getDeliveryInsurance();
-
-        $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($quote->getBaseGrandTotal());
-        Mage::log('collect $deliveryInsurance - ' . $deliveryInsurance);
-
-        $address->setDeliveryInsurance($deliveryInsurance);
-        $address->setBaseDeliveryInsurance($deliveryInsurance);
-
-        $quote->setDeliveryInsurance($deliveryInsurance);
-        $quote->setBaseDeliveryInsurance($deliveryInsurance);
-
-        //$address->setGrandTotal($address->getGrandTotal() + $deliveryInsurance);
-        //$address->setBaseGrandTotal($address->getBaseGrandTotal() + $deliveryInsurance);
 
         return $this;
     }
@@ -81,15 +91,16 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
         $isIncludeInsuranceDelivery = $this->getIsIncludeInsuranceDelivery();
 
         // if (($address->getAddressType() == 'billing')) {
-        if ($isIncludeInsuranceDelivery && $address->getAddressType() == 'billing') {
+        if ($isIncludeInsuranceDelivery /*&& $address->getAddressType() == 'billing'*/) {
             $quote = $address->getQuote();
-            Mage::log(var_dump($quote));
-            Mage::log(var_dump($address));
+            //Mage::log(var_dump($quote));
+            //Mage::log(var_dump($address));
 
             $address->addTotal([
                 'code' => $this->getCode(),
                 'title' => $this->getLabel(),
                 'value' => $quote->getDeliveryInsurance(),
+                //'value' => $address->getDeliveryInsurance(),
             ]);
         }
 

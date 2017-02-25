@@ -27,8 +27,8 @@ class Mage_Insurance_Model_Observer
             $quote->setSsn($var);
         }*/
 
-        Mage::log($quote->getBaseGrandTotal());
-        Mage::log($request->getParam('deliveryInsurance'));
+        //Mage::log($quote->getBaseGrandTotal());
+        //Mage::log($request->getParam('deliveryInsurance'));
 
         //$deliveryInsurance = $post['deliveryInsurance'];
 
@@ -98,9 +98,9 @@ class Mage_Insurance_Model_Observer
     public function saveShippingMethod($observer)
     {
         //$event = $obs->getEvent();
-        //$quote = $observer->getEvent()->getQuote();
         //$quote = $evt->getQuote();
-        //var_dump($quote->getBaseGrandTotal());
+        $quote = $observer->getEvent()->getQuote();
+        //Mage::log('saveShippingMethod ' . $quote->getBaseGrandTotal());
 
         $postData = Mage::app()->getFrontController()->getRequest()->getPost();
 

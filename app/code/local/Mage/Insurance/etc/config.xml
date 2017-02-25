@@ -164,8 +164,9 @@
             <quote>
                 <totals>
                     <delivery_insurance>
-                        <class>Mage_Insurance_Model_Insurance</class>
-                        <after>subtotal</after>
+                        <!--<class>Mage_Insurance_Model_Insurance</class>-->
+                        <class>Mage_Insurance_Model_Insurance1</class>
+                        <after>discount</after>
                         <before>tax</before>
                     </delivery_insurance>
                 </totals>
