@@ -6,9 +6,9 @@
         </reference>
         <!--<reference name='checkout.onepage.billing'>-->
         <reference name='checkout.onepage.shipping_method'>
-          <!-- <action method='setTemplate'>
-                <template>mage/insurance/simple_page.phtml</template>
-           </action>-->
+            <!-- <action method='setTemplate'>
+                  <template>mage/insurance/simple_page.phtml</template>
+             </action>-->
             <!--<block type='checkout/onepage_billing' name='form.additional.info' template='mage/insurance/simple_page.phtml'/>-->
             <block type='checkout/onepage_shipping_method' name='additional' template='mage/insurance/simple_page.phtml'/>
             <!--<block type='insurance/insurance' name='insurance' template='mage/insurance/simple_page.phtml'/>-->
@@ -17,9 +17,24 @@
             <action method="setTemplate">
                 <template>mage/insurance/simple_page.phtml</template>
             </action>-->
-            <!--<block type="page/template_links" name="top.links"/>-->
-            <!--<block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml"/>-->
+        <!--<block type="page/template_links" name="top.links"/>-->
+        <!--<block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml"/>-->
         <!--</reference>-->
     </checkout_onepage_index>
     <!--</catalog_product_view>-->
+    <sales_order_view>
+        <reference name="order_totals">
+            <block type="delivery_insurance/frontend_totals" />
+        </reference>
+    </sales_order_view>
+    <sales_order_print>
+        <reference name="order_totals">
+            <block type="delivery_insurance/frontend_totals" />
+        </reference>
+    </sales_order_print>
+    <sales_email_order_items>
+        <reference name="order_totals">
+            <block type="delivery_insurance/frontend_totals" />
+        </reference>
+    </sales_email_order_items>
 </layout>

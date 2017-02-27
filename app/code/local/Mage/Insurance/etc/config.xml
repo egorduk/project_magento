@@ -104,9 +104,9 @@
             </insurance_read>
         </resources>
         <blocks>
-            <insurance>
+            <delivery_insurance>
                 <class>Mage_Insurance_Block</class>
-            </insurance>
+            </delivery_insurance>
             <adminhtml>
                 <rewrite>
                     <sales_order_totals>Mage_Insurance_Block_Adminhtml_Totals_Order</sales_order_totals>
@@ -171,29 +171,28 @@
             <quote>
                 <totals>
                     <delivery_insurance>
-                        <!--<class>Mage_Insurance_Model_Insurance</class>-->
                         <class>Mage_Insurance_Model_Totals_Quote</class>
-                        <after>discount</after>
+                        <after>subtotal</after>
                         <before>tax</before>
                     </delivery_insurance>
                 </totals>
             </quote>
             <order_invoice>
                 <totals>
-                    <turnkeye_insurance>
+                    <delivery_insurance>
                         <class>Mage_Insurance_Model_Totals_Invoice</class>
                         <after>subtotal</after>
                         <before>tax</before>
-                    </turnkeye_insurance>
+                    </delivery_insurance>
                 </totals>
             </order_invoice>
             <order_creditmemo>
                 <totals>
-                    <turnkeye_insurance>
+                    <delivery_insurance>
                         <class>Mage_Insurance_Model_Totals_Creditmemo</class>
                         <after>subtotal</after>
                         <before>tax</before>
-                    </turnkeye_insurance>
+                    </delivery_insurance>
                 </totals>
             </order_creditmemo>
         </sales>
