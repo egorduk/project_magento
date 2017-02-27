@@ -107,6 +107,13 @@
             <insurance>
                 <class>Mage_Insurance_Block</class>
             </insurance>
+            <adminhtml>
+                <rewrite>
+                    <sales_order_totals>Mage_Insurance_Block_Adminhtml_Totals_Order</sales_order_totals>
+                    <sales_order_invoice_totals>Mage_Insurance_Block_Adminhtml_Totals_Invoice</sales_order_invoice_totals>
+                    <sales_order_creditmemo_totals>Mage_Insurance_Block_Adminhtml_Totals_Creditmemo</sales_order_creditmemo_totals>
+                </rewrite>
+            </adminhtml>
         </blocks>
         <helpers>
             <insurance>
@@ -165,12 +172,30 @@
                 <totals>
                     <delivery_insurance>
                         <!--<class>Mage_Insurance_Model_Insurance</class>-->
-                        <class>Mage_Insurance_Model_Insurance1</class>
+                        <class>Mage_Insurance_Model_Totals_Quote</class>
                         <after>discount</after>
                         <before>tax</before>
                     </delivery_insurance>
                 </totals>
             </quote>
+            <order_invoice>
+                <totals>
+                    <turnkeye_insurance>
+                        <class>Mage_Insurance_Model_Totals_Invoice</class>
+                        <after>subtotal</after>
+                        <before>tax</before>
+                    </turnkeye_insurance>
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>
+                    <turnkeye_insurance>
+                        <class>Mage_Insurance_Model_Totals_Creditmemo</class>
+                        <after>subtotal</after>
+                        <before>tax</before>
+                    </turnkeye_insurance>
+                </totals>
+            </order_creditmemo>
         </sales>
         <fieldsets>
             <sales_convert_quote_address>
