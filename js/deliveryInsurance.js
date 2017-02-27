@@ -13,16 +13,18 @@
                 var shippingMethodId = $('#co-shipping-method-form').find('input[type=radio]:checked').val(),
                     quoteId = $('#quote-id').val();
 
-                $.post(
-                    url,
-                    {
-                        shippingMethodId: shippingMethodId,
-                        quoteId: quoteId
-                    },
-                    function(data) {
-                        placeDeliveryInsuranceCost.empty().append(data);
-                    }
-                )
+                if (shippingMethodId && quoteId) {
+                    $.post(
+                        ajaxUrl,
+                        {
+                            shippingMethodId: shippingMethodId,
+                            quoteId: quoteId
+                        },
+                        function(data) {
+                            placeDeliveryInsuranceCost.empty().append(data);
+                        }
+                    )
+                }
             }
         });
     });

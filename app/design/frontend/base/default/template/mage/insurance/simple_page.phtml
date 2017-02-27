@@ -1,15 +1,5 @@
-<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Hello World</title>
-</head>
-<body>
-    <?php /*echo $this->getChildHtml('customer_form_register'); */?>
-</body>
-</html>-->
 <script type="text/javascript">
-    var url = '<?php echo $this->getUrl('insurance/ajax/test') ?>';
+    var ajaxUrl = '<?php echo $this->getUrl('insurance/ajax/getDeliveryInsurance') ?>';
 </script>
 <ul class="form-list">
     <li>
@@ -18,7 +8,6 @@
             <input type="checkbox" id="delivery-insurance" name="deliveryInsurance" />
             <input type="hidden" id="quote-id" name="quoteId" value="<?php echo $this->htmlEscape($this->getQuote()->getId()) ?>" />
         </div>
-<!--        <span>--><?php //echo $this->htmlEscape($this->getQuote()->getBaseGrandTotal()) ?><!--</span>-->
         <p id="place-delivery-insurance-cost"></p>
     </li>
 </ul>

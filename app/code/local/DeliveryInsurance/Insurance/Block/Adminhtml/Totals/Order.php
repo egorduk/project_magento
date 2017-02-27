@@ -1,6 +1,6 @@
 <?php
 
-class Mage_Insurance_Block_Adminhtml_Totals_Invoice extends Mage_Adminhtml_Block_Sales_Order_Totals
+class DeliveryInsurance_Insurance_Block_Adminhtml_Totals_Order extends Mage_Adminhtml_Block_Sales_Order_Totals
 {
     protected function _initTotals()
     {
@@ -15,7 +15,7 @@ class Mage_Insurance_Block_Adminhtml_Totals_Invoice extends Mage_Adminhtml_Block
                 'code'      => 'delivery_insurance',
                 'value'     => $amount,
                 'base_value'=> $amount,
-                'label'     => $this->helper('Insurance')->__('Delivery Insurance'),
+                'label'     => $this->helper('delivery_insurance')->__('Delivery Insurance'),
             ], ['shipping', 'tax']));
         }
 

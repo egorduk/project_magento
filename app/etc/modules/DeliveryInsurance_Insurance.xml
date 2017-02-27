@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Mage_Insurance>
+        <DeliveryInsurance_Insurance>
             <active>true</active>
             <codePool>local</codePool>
-        </Mage_Insurance>
+        </DeliveryInsurance_Insurance>
     </modules>
 </config>

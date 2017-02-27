@@ -1,31 +1,36 @@
 <?php
 
-class Mage_Insurance_Model_Totals_Quote extends Mage_Sales_Model_Quote_Address_Total_Abstract
+class DeliveryInsurance_Insurance_Model_Totals_Quote extends Mage_Sales_Model_Quote_Address_Total_Abstract
 {
     public function __construct()
     {
         $this->setCode('delivery_insurance');
     }
 
+    public function getIsIncludeInsuranceDelivery()
+    {
+        return Mage::helper('delivery_insurance')->getIsIncludeInsuranceDelivery();
+    }
+
+    public function getInsuranceDeliveryCost($grandTotal)
+    {
+        return Mage::helper('delivery_insurance')->getInsuranceDeliveryCost($grandTotal);
+    }
+
     public function collect(Mage_Sales_Model_Quote_Address $address)
     {
-        //$quote = $address->getQuote();
+        $isIncludeInsuranceDelivery = $this->getIsIncludeInsuranceDelivery();
 
-        if (/*!$quote->isVirtual() && */$address->getAddressType() == 'billing') {
+        if ($address->getAddressType() == 'billing' || !$isIncludeInsuranceDelivery) {
             return $this;
         }
 
-        $helper = Mage::helper('Insurance');
+        $grandTotal = Mage::getModel('checkout/session')->getQuote()->getGrandTotal();
 
-        //$address = Mage::getModel('sales/quote_address')->load($address->getId());
-
-        $deliveryInsurance = $helper->getInsuranceDeliveryCost(1000/*$address->getGrandTotal()*/);
+        $deliveryInsurance = $this->getInsuranceDeliveryCost($grandTotal);
 
         $address->setDeliveryInsurance($deliveryInsurance);
         $address->setBaseDeliveryInsurance($deliveryInsurance);
-
-        //$quote->setDeliveryInsurance($deliveryInsurance);
-        //$quote->setBaseDeliveryInsurance($deliveryInsurance);
 
         $address->setBaseGrandTotal($address->getBaseGrandTotal() + $deliveryInsurance);
         $address->setGrandTotal($address->getGrandTotal() + $deliveryInsurance);
@@ -42,13 +47,15 @@ class Mage_Insurance_Model_Totals_Quote extends Mage_Sales_Model_Quote_Address_T
 
     public function fetch(Mage_Sales_Model_Quote_Address $address)
     {
-        if ($address->getAddressType() != 'billing') {
+        $isIncludeInsuranceDelivery = $this->getIsIncludeInsuranceDelivery();
+
+        if ($address->getAddressType() != 'billing' && $isIncludeInsuranceDelivery) {
             $amount = $address->getDeliveryInsurance();
 
             if ($amount != 0) {
                 $address->addTotal([
                     'code' => $this->getCode(),
-                    'title' => Mage::helper('Insurance')->__('Delivery Insurance'),
+                    'title' => Mage::helper('delivery_insurance')->__('Delivery Insurance'),
                     'value' => $amount,
                 ]);
             }

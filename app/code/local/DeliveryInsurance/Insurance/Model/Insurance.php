@@ -1,6 +1,6 @@
 <?php
 
-class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Total_Abstract
+class DeliveryInsurance_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Total_Abstract
 {
     protected $code = 'delivery_insurance';
 
@@ -14,12 +14,12 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
      */
     public function getLabel()
     {
-        return Mage::helper('Insurance')->__('Delivery Insurance');
+        return Mage::helper('delivery_insurance')->__('Delivery Insurance');
     }
 
     public function getIsIncludeInsuranceDelivery()
     {
-        return Mage::helper('Insurance')->getIsIncludeInsuranceDelivery();
+        return Mage::helper('delivery_insurance')->getIsIncludeInsuranceDelivery();
     }
 
     public function collect(Mage_Sales_Model_Quote_Address $address)
@@ -56,7 +56,7 @@ class Mage_Insurance_Model_Insurance extends Mage_Sales_Model_Quote_Address_Tota
                 //Mage::log('item - ' . $item->geGrandTotal());
             //}
            // var_dump($quote);
-            $deliveryInsurance = Mage::helper('Insurance')->getInsuranceDeliveryCost($quote->getBaseGrandTotal());
+            $deliveryInsurance = Mage::helper('delivery_insurance')->getInsuranceDeliveryCost($quote->getBaseGrandTotal());
             Mage::log('collect $deliveryInsurance - ' . $deliveryInsurance);
 
             $address->setDeliveryInsurance($deliveryInsurance);
