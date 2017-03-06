@@ -14,8 +14,11 @@ class DeliveryInsurance_Insurance_AjaxController extends Mage_Core_Controller_Fr
                 $helper = Mage::helper('delivery_insurance');
 
                 $baseTotal = $quote->getBaseSubtotalWithDiscount() + $quoteAddress->getPrice();
+                $response = $helper->getCurrentCurrencySymbol() . $helper->getInsuranceDeliveryCost($baseTotal);
+                $jsonResponse = Mage::helper('core')->jsonEncode($response);
 
-                echo $helper->getCurrentCurrencySymbol() . $helper->getInsuranceDeliveryCost($baseTotal);
+                $this->getResponse()->setHeader('Content-type', 'application/json');
+                $this->getResponse()->setBody($jsonResponse);
             }
         }
     }
