@@ -129,6 +129,8 @@ class Mage_Sales_Model_Quote_Address_Total_Discount extends Mage_Sales_Model_Quo
         $address->setBaseDiscountAmount($baseTotalDiscountAmount);
         $address->setBaseSubtotalWithDiscount($baseSubtotalWithDiscount);
 
+        Mage::log('discount.php ' . $address->getBaseGrandTotal());
+
         $address->setGrandTotal($address->getGrandTotal() - $address->getDiscountAmount());
         $address->setBaseGrandTotal($address->getBaseGrandTotal()-$address->getBaseDiscountAmount());
         return $this;

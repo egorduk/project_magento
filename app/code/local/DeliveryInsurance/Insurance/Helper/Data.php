@@ -27,11 +27,19 @@ class DeliveryInsurance_Insurance_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * @return Mage_Core_Model_Abstract
+     */
+    private function getSession()
+    {
+        return Mage::getSingleton('core/session');
+    }
+
+    /**
      * @param int $isInclude
      */
     public function setIsIncludeInsuranceDelivery($isInclude = 1)
     {
-        Mage::getSingleton('core/session')->setData('isIncludeDeliveryInsurance', $isInclude);
+        $this->getSession()->setData('isIncludeDeliveryInsurance', $isInclude);
     }
 
     /**
@@ -39,11 +47,11 @@ class DeliveryInsurance_Insurance_Helper_Data extends Mage_Core_Helper_Abstract
      */
     public function getIsIncludeInsuranceDelivery()
     {
-        return Mage::getSingleton('core/session')->getData('isIncludeDeliveryInsurance');
+        return $this->getSession()->getData('isIncludeDeliveryInsurance');
     }
 
     public function unsetIsIncludeInsuranceDelivery()
     {
-        Mage::getSingleton('core/session')->unsetData('isIncludeDeliveryInsurance');
+        $this->getSession()->unsetData('isIncludeDeliveryInsurance');
     }
 }

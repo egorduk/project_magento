@@ -2,20 +2,25 @@
 
 class DeliveryInsurance_Insurance_Model_Observer
 {
+    protected $helper;
+
+    public function __construct()
+    {
+        $this->helper = Mage::helper('delivery_insurance');
+    }
+
     public function saveOrderAfter()
     {
-        Mage::helper('delivery_insurance')->unsetIsIncludeInsuranceDelivery();
+        $this->helper->unsetIsIncludeInsuranceDelivery();
     }
 
     public function saveShippingMethod()
     {
         $postData = Mage::app()->getFrontController()->getRequest()->getPost();
 
-        $helper = Mage::helper('delivery_insurance');
-
         isset($postData['deliveryInsurance']) ?
-            $helper->setIsIncludeInsuranceDelivery() :
-            $helper->unsetIsIncludeInsuranceDelivery();
+            $this->helper->setIsIncludeInsuranceDelivery() :
+            $this->helper->unsetIsIncludeInsuranceDelivery();
 
         return $this;
     }
